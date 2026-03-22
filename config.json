@@ -1,0 +1,24 @@
+{
+  "port": 3000,
+  "mediaPaths": [
+    "/mnt/user/Media/Movies",
+    "/mnt/user/Media/Shows"
+  ],
+  "cacheDir": "./cache",
+  "transcoding": {
+    "hwaccel": "qsv",
+    "fallbackToSoftware": true,
+    "maxConcurrentJobs": 2,
+    "segmentDuration": 6,
+    "renditions": [
+      { "name": "1080p", "resolution": "1920x1080", "videoBitrate": "4000k", "audioBitrate": "192k" },
+      { "name": "720p",  "resolution": "1280x720",  "videoBitrate": "2500k", "audioBitrate": "128k" },
+      { "name": "480p",  "resolution": "854x480",   "videoBitrate": "1000k", "audioBitrate": "96k"  }
+    ]
+  },
+  "scanner": {
+    "videoExtensions": [".mkv", ".mp4", ".mov", ".avi", ".m4v", ".webm"],
+    "photoExtensions": [".jpg", ".jpeg", ".png", ".webp", ".gif"],
+    "rescanIntervalMinutes": 60
+  }
+}

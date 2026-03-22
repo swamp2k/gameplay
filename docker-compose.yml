@@ -1,0 +1,18 @@
+services:
+  gameplay:
+    build: .
+    container_name: gameplay
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount your media folders read-only (adjust paths to match your Unraid setup)
+      - /mnt/user/Media:/mnt/user/Media:ro
+      # Persist config and cache
+      - ./config.json:/app/config.json
+      - ./cache:/app/cache
+    devices:
+      # Pass through Intel GPU for QSV hardware transcoding
+      - /dev/dri:/dev/dri
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
